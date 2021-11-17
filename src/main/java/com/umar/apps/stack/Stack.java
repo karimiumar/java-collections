@@ -1,5 +1,10 @@
 package com.umar.apps.stack;
 
+/**
+ * The Stack class represents a last-in-first-out (LIFO) stack of objects.
+ *
+ * @param <T> The type of objects. Remember to override the equals method for any Custom object type.
+ */
 public class Stack<T> implements Stackable<T>{
 
     private Stack<T> previous;
