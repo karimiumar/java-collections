@@ -6,7 +6,7 @@ public interface ThrowingFunction<T, R, E extends Throwable> {
 
     R apply(T t) throws E;
 
-    static <T, R, E extends Throwable>Function<T, R> uncheckedFunction(ThrowingFunction<T, R, E> func) {
+    static <T, R, E extends Throwable>Function<T, R> unchecked(ThrowingFunction<T, R, E> func) {
         return t -> {
             try{
                 return func.apply(t);

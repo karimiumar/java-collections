@@ -20,7 +20,7 @@ public class WebCrawlerV4 {
     }
 
     private void crawl(List<String> urls) {
-        urls.stream().map(ThrowingFunction.uncheckedFunction(URL::new))
+        urls.stream().map(ThrowingFunction.unchecked(URL::new))
                 .forEach(ThrowingConsumer.unchecked(this::save));
     }
 

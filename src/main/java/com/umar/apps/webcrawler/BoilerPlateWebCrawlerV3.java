@@ -19,7 +19,7 @@ public class BoilerPlateWebCrawlerV3 {
     }
 
     private void crawl(List<String> urls) {
-        urls.stream().map(ThrowingFunction.uncheckedFunction(URL::new))
+        urls.stream().map(ThrowingFunction.unchecked(URL::new))
                 .forEach(this::save);
     }
 
