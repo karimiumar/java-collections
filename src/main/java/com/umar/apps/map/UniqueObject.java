@@ -3,15 +3,7 @@ package com.umar.apps.map;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public final class UniqueObject {
-
-    private final String key;
-    private final LocalDateTime creationTime;
-
-    public UniqueObject(String key, LocalDateTime creationTime) {
-        this.key = key;
-        this.creationTime = creationTime;
-    }
+public record UniqueObject(String key, LocalDateTime creationTime) {
 
     public String getKey() {
         return key;
