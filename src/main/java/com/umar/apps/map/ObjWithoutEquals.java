@@ -3,6 +3,10 @@ package com.umar.apps.map;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * Do not convert this class to a record type as the purpose of testing and
+ * adding objects of this type as a key to a Hashmap will fail.
+ */
 public final class ObjWithoutEquals {
     
     private final String key;
