@@ -1,18 +1,17 @@
 package com.umar.apps.map;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-public final class ObjWithoutEquals {
-    
+public final class ObjWithoutHashcode {
+
     private final String key;
     private final LocalDateTime creationTime;
 
-    public ObjWithoutEquals(String key, LocalDateTime creationTime) {
+    public ObjWithoutHashcode(String key, LocalDateTime creationTime) {
         this.key = key;
         this.creationTime = creationTime;
     }
-    
+
     public String getKey() {
         return key;
     }
@@ -22,13 +21,16 @@ public final class ObjWithoutEquals {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(key, creationTime);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ObjWithoutHashcode that = (ObjWithoutHashcode) o;
+        return key.equals(that.key) && creationTime.equals(that.creationTime);
     }
 
     @Override
     public String toString() {
-        return "ObjWithoutEquals{" +
+        return "ObjWithoutHashcode{" +
                 "key='" + key + '\'' +
                 ", creationTime=" + creationTime +
                 '}';
