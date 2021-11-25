@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,7 +30,7 @@ public class ConcurrentModificationExceptionTest {
             for (var i: integers) {
                 integers.remove(i);
             }
-        });
+        }).isExactlyInstanceOf(ConcurrentModificationException.class);
         assertThat(integers).containsExactly(2, 3, 4);
     }
 
