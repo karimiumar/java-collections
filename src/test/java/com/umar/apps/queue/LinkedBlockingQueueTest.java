@@ -41,7 +41,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
  * |    Examine       |  element()         | peek()         | NA        | NA
  * -------------------------------------------------------------------------------------------
  */
-public class BlockingQueueTest {
+public class LinkedBlockingQueueTest {
 
     private BlockingQueue<String> queue;
 

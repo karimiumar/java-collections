@@ -54,7 +54,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
  * |    Examine       |  element()         | peek()
  * ---------------------------------------------------------
  */
-public class QueueTest {
+public class LinkedListBackedQueueTest {
 
     private Queue<String> queue;
 
