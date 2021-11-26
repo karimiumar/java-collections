@@ -1,11 +1,10 @@
-package com.umar.apps.queue;
+package com.umar.apps.queue.concurrent;
 
 import com.umar.apps.util.ThrowingConsumer;
 import com.umar.apps.util.ThrowingFunction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;

@@ -1,4 +1,4 @@
-package com.umar.apps.queue;
+package com.umar.apps.queue.concurrent;
 
 import com.umar.apps.util.ThrowingFunction;
 

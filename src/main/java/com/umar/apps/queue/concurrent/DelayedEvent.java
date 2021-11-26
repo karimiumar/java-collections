@@ -1,4 +1,4 @@
-package com.umar.apps.queue;
+package com.umar.apps.queue.concurrent;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
