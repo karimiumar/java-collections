@@ -5,6 +5,7 @@ import com.umar.apps.util.ThrowingFunction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -61,7 +62,8 @@ public class ArrayBlockingQueueBackedQueueTest {
         assertThat(queue.offer("Sara")).isTrue();
         assertThat(queue.offer("Zara")).isTrue();
         assertThat(queue.offer("Lara")).isTrue();
-        ThrowingFunction.unchecked(throwable -> queue.offer("O'Hara", 2L, TimeUnit.SECONDS)).apply(queue);
+        ThrowingFunction<BlockingQueue<String>, Boolean, Exception> queueFunc = que -> que.offer("O'Hara", 2L, TimeUnit.SECONDS);
+        queueFunc.lift().apply(queue);
         assertThat(queue).hasSize(3);
     }
 
