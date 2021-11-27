@@ -4,16 +4,16 @@ import java.util.function.Consumer;
 
 import static java.util.Objects.requireNonNull;
 
-public interface ThrowingConsumer<T, E extends Throwable> {
+public interface ThrowingConsumer<T, E extends Exception> {
 
     void accept(T t) throws E;
 
-    static <T, E extends Throwable>Consumer<T> unchecked(ThrowingConsumer<T,E> consumer) {
+    static <T> Consumer<T> unchecked(ThrowingConsumer<? super T, ?> consumer) {
         requireNonNull(consumer, "ThrowingConsumer is required");
         return (t) -> {
             try{
                 consumer.accept(t);
-            }catch (Throwable e) {
+            }catch (Exception e) {
                 throw new RuntimeException(e);
             }
         };
