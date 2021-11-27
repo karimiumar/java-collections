@@ -5,14 +5,6 @@ import java.util.Objects;
 
 public record UniqueObject(String key, LocalDateTime creationTime) {
 
-    public String getKey() {
-        return key;
-    }
-
-    public LocalDateTime getCreationTime() {
-        return creationTime;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

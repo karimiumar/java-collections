@@ -21,8 +21,8 @@ public class HashMapUniqueObjectTest {
         HashMap<UniqueObject, String> map = new HashMap<>();
         //hash of obj1 nad obj2 are 0 hence, at bucket zero,
         //hashmap creates a linkedlist and stores obj1 in first node and obj2 in other node.
-        map.put(obj1, obj1.getKey());
-        map.put(obj2, obj2.getKey());
+        map.put(obj1, obj1.key());
+        map.put(obj2, obj2.key());
         assertThat(map.entrySet()).hasSize(2);
         assertThat(obj1.hashCode()).isEqualTo(obj2.hashCode());
         assertThat(obj1).isNotEqualTo(obj2);
@@ -36,8 +36,8 @@ public class HashMapUniqueObjectTest {
         var obj3 = new UniqueObject("perversive", creationTime);
         var obj4 = new UniqueObject("perversive", creationTime);
         HashMap<UniqueObject, String> map = new HashMap<>();
-        map.put(obj3, obj3.getKey());
-        map.put(obj4, obj4.getKey());
+        map.put(obj3, obj3.key());
+        map.put(obj4, obj4.key());
         assertThat(obj3).isEqualTo(obj4);
         assertThat(obj3.hashCode()).isEqualTo(obj4.hashCode());
         assertThat(map.entrySet()).hasSize(1);
@@ -50,8 +50,8 @@ public class HashMapUniqueObjectTest {
         var obj3 = new UniqueObject("perversive", LocalDateTime.now());
         var obj4 = new UniqueObject("perversive", LocalDateTime.now().plus(2L, ChronoUnit.SECONDS));
         HashMap<UniqueObject, String> map = new HashMap<>();
-        map.put(obj3, obj3.getKey());
-        map.put(obj4, obj4.getKey());
+        map.put(obj3, obj3.key());
+        map.put(obj4, obj4.key());
         assertThat(obj3).isNotEqualTo(obj4);
         assertThat(obj3.hashCode()).isNotEqualTo(obj4.hashCode());
         assertThat(map.entrySet()).hasSize(2);
@@ -65,8 +65,8 @@ public class HashMapUniqueObjectTest {
         var obj3 = new UniqueObject("perversive-school", creationTime);
         var obj4 = new UniqueObject("perversive", creationTime);
         HashMap<UniqueObject, String> map = new HashMap<>();
-        map.put(obj3, obj3.getKey());
-        map.put(obj4, obj4.getKey());
+        map.put(obj3, obj3.key());
+        map.put(obj4, obj4.key());
         assertThat(obj3).isNotEqualTo(obj4);
         assertThat(obj3.hashCode()).isNotEqualTo(obj4.hashCode());
         assertThat(map.entrySet()).hasSize(2);
