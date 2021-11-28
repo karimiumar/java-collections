@@ -29,6 +29,8 @@ public class ConcurrentLinkedQueueBackedQueueTest {
         var result = executorService.submit(pollingTask).get(100, TimeUnit.MILLISECONDS);
         executorService.shutdown();
         assertThat(result).isNull();
+        assertThat(queue).hasSize(0);
+        assertThat(executorService.isShutdown()).isTrue();
     }
 
     @Test
@@ -42,6 +44,7 @@ public class ConcurrentLinkedQueueBackedQueueTest {
         executorService.submit(offeringTask);
         //Let complete offeringTask otherwise it may be possible that pollingTask will begin resulting in Assertion errors
         Thread.sleep(100);
+        assertThat(queue).hasSize(4);
         Callable<Integer> pollingTask = ()-> queue.poll();
         var result1 = executorService.submit(pollingTask).get(100, TimeUnit.MILLISECONDS);
         var result2 = executorService.submit(pollingTask).get(100, TimeUnit.MILLISECONDS);
@@ -54,5 +57,7 @@ public class ConcurrentLinkedQueueBackedQueueTest {
         assertThat(result3).isEqualTo(5);
         assertThat(result4).isEqualTo(11);
         assertThat(result5).isNull();
+        assertThat(queue).hasSize(0);
+        assertThat(executorService.isShutdown()).isTrue();
     }
 }
