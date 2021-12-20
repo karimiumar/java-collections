@@ -22,8 +22,7 @@ public class CustomBlockingQueueTest {
             System.out.println("Successfully dequeued: " + value);
         });
         dequeuer.start();
-        Thread.sleep(2000);
-        Thread.currentThread().interrupt();
+        dequeuer.join(2000);
         System.out.println("If message `Successfully dequeued: xx` was not printed then thread was blocked.");
     }
 
@@ -55,8 +54,7 @@ public class CustomBlockingQueueTest {
             System.out.println("Successfully enqueued: " + 7);
         });
         enqueuer.start();
-        Thread.sleep(2000);
-        Thread.currentThread().interrupt();
+        enqueuer.join(2000);
         System.out.println("If message `Successfully enqueued: 7` was not printed then thread was blocked.");
         assertThat(queue.isNotEmpty()).isTrue();
     }
@@ -73,8 +71,7 @@ public class CustomBlockingQueueTest {
             System.out.println("Successfully enqueued: " + 70);
         });
         enqueuer.start();
-        Thread.sleep(2000);
-        Thread.currentThread().interrupt();
+        enqueuer.join(1000);
         assertThat(queue.size()).isEqualTo(5);
     }
 }
